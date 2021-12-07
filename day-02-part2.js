@@ -1040,7 +1040,7 @@ function loopThroughInput(input) {
   return [horizontal, depth] //?
 }
 
-let finalDepthAndHorizontal = loopThroughInput(parseInput(realInput)) //?
+let finalDepthAndHorizontal = loopThroughInput(parseInput(sampleInput)) //?
 
 //multiply two numbers in array
 
