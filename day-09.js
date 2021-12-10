@@ -108,7 +108,7 @@ const sampleInput = `2199943210
 // parse input into 2d array as strings
 const input = realInput.split('\n').map(row => row.split(''))
 
-input
+input //?
 
 // find neighbors of each cell
 
@@ -142,7 +142,10 @@ let lowestNeighbors = []
 
 filteredNeighbors.forEach( row => {
   let lowest = Math.min(...row) //?
-  if(lowest === parseInt(row[0])) {
+  // ignore 9s
+  if( lowest === 9 ) {
+    return
+  } else if (lowest === parseInt(row[0])) {
     lowestNeighbors.push(parseInt(row[0]))
   }
 })
@@ -159,6 +162,4 @@ for(let i=0; i<lowestNeighbors.length; i++) {
 
 let totalRisk = lowestNeighbors.reduce((acc, curr) => acc + curr)
 
-
-// doesn't work
 console.log(totalRisk) //?
