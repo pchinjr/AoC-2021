@@ -108,10 +108,8 @@ const sampleInput = `2199943210
 // parse input into 2d array as strings
 const input = realInput.split('\n').map(row => row.split(''))
 
-input //?
-
-// find neighbors of each cell
-
+// find neighbors of each cell, and put that into a new array
+// if there is no neighbor at the edge of the board, return null.
 let neighbors = []
 
 for(let i=0; i<input.length; i++) {
@@ -126,16 +124,12 @@ for(let i=0; i<input.length; i++) {
     neighbors.push([currentValue, top, left, right, bottom])
   }
 }
-neighbors //?
 
-
-// get rid of nulls
+// remove nulls from each row of neighbors
 let filteredNeighbors = []
 neighbors.forEach( row => {
   filteredNeighbors.push(row.filter( cell => cell !== null))
 })
-
-filteredNeighbors //?
 
 // check if the first number is the lowest, if it is return it to a new array
 let lowestNeighbors = []
@@ -150,16 +144,13 @@ filteredNeighbors.forEach( row => {
   }
 })
 
-lowestNeighbors //?
-
 // add 1 to each number in the array
-
 for(let i=0; i<lowestNeighbors.length; i++) {
   lowestNeighbors[i] += 1
 }
 
 // add up the numbers in lowestNeighbors
-
 let totalRisk = lowestNeighbors.reduce((acc, curr) => acc + curr)
 
+// find the answer
 console.log(totalRisk) //?
